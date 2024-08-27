@@ -1,5 +1,5 @@
 
-# Comprehensive Recap: Deploying a Web Application with Nginx, Flask, and MySQL in Kubernetes
+# Recap: Deploying a Web Application with Nginx, Flask, and MySQL in Kubernetes
 
 ## 1. Initial Setup and Environment Preparation
 
