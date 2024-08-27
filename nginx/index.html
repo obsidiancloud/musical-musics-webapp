@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Preferences</title>
+</head>
+<body>
+    <h1>User Preferences</h1>
+    <table id="users-table" border="1">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Preferences</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        // Fetch user data from the Flask API endpoint
+        fetch('/api/users')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('users-table').getElementsByTagName('tbody')[0];
+                data.forEach(user => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${user.username}</td><td>${user.email}</td><td>${user.preferences}</td>`;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error fetching user data:', error));
+    </script>
+</body>
+</html>

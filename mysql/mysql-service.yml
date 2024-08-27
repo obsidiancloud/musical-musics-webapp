@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: NodePort  # Use NodePort to expose MySQL externally
+  ports:
+  - port: 3306  # The port that the service will listen on
+    targetPort: 3306  # The port on the pod that traffic will be directed to
+    nodePort: 32000  # A specific port on each Node to expose the Service, within the range 30000-32767
+    name: mysql
+  selector:
+    app: mysql
